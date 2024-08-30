@@ -20,33 +20,29 @@
             color: #333;
             font-size: 16px;
             font-weight: bold;
-            white-space: nowrap;
+            
             padding: 0 20px;
         }
         label{
             font-size: 24px;
-        }
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }        
         button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        button {
+            white-space: nowrap;
             padding: 10px 20px;
             width: 30%;
             height: 30vw;
             font-size: 16px;
             color: #fff;
-            background-image: linear-gradient(to right, #ff416c, #ff2bf8);
+            background-image: radial-gradient(circle, #007BFF 60%, #ff2bf8 90%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border: none;
             border-radius: 50%;
             cursor: pointer;
+            background-color: #007BFF;
+            transition: background-color 0.3s;
         }
     </style>
 </head>
@@ -54,10 +50,13 @@
 <body>
     <center>
         <div class="marquee-container">
-            <marquee class="marquee-text">先点登录获取账号信息，出现开始使用后，返回该页面点击状态按钮</marquee>
+            <marquee class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮</marquee>
         </div>
         <br>
-        <div class="marquee-text">先点登录获取账号信息，出现开始使用后，返回该页面点击状态按钮</div>
+        <div>
+            <label>使用说明</label>
+        </div>
+        <div class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮</div>
         <br>
         <br>
         <div>
@@ -79,7 +78,10 @@
         </div>
     </center>
     <script>
-        window.addEventListener('resize', adjustFontSize);
+        if (!localStorage.getItem('token')){
+            alert('先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮')
+            localStorage.setItem('token','1')
+        }
         var but = document.querySelectorAll('button')
 
         function adjustFontSize(div) {
