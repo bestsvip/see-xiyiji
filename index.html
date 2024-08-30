@@ -5,47 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查看G1 洗衣机状态</title>
+    <style>
+        .marquee-container {
+            width: 100%;
+            height: 50px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .marquee-text {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+            padding: 0 20px;
+        }
+        label{
+            font-size: 24px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            width: 30%;
+            height: 30vw;
+            font-size: 16px;
+            color: #fff;
+            background-image: linear-gradient(to right, #ff416c, #ff2bf8);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
+    <center>
+        <div class="marquee-container">
+            <marquee class="marquee-text">先点登录获取账号信息，出现开始使用后，返回该页面点击状态按钮</marquee>
+        </div>
+        <br>
+        <div class="marquee-text">先点登录获取账号信息，出现开始使用后，返回该页面点击状态按钮</div>
+        <br>
+        <br>
+        <div>
+            <div>
+                <label>获取洗衣机账号信息</label>
+            </div>
+            <br>
+            <div>
+                <button>登 录</button>
+            </div>
+        </div>
+        <br>
+        <div>
+            <div> <label>洗衣机状态</label> </div>
+            <br>
+            <div>
+                <button>状 态</button>
+            </div>
+        </div>
+    </center>
     <script>
-        window.onload = function () {
-            // 监听在线状态变化
-            window.addEventListener('online', onlineHandler, false);
-            window.addEventListener('offline', offlineHandler, false);
+        window.addEventListener('resize', adjustFontSize);
+        var but = document.querySelectorAll('button')
 
-            // 初始状态检查
-            checkOnlineStatus();
-        };
-
-        function checkOnlineStatus() {
-            if (navigator.onLine) {
-                return true;
-            } else {
-                return false;
-            }
+        function adjustFontSize(div) {
+            var currentWidth = div.clientWidth;
+            var fontSize = Math.min(currentWidth * 0.3, 100); // 字体大小最大不超过20px
+            div.style.fontSize = fontSize + 'px';
         }
 
-        function onlineHandler(event) {
-            checkOnlineStatus();
-        }
-
-        function offlineHandler(event) {
-            checkOnlineStatus();
-        }
-    </script>
-    <script>
-        while (checkOnlineStatus()) {
-            xyj ='https://wx2.cooleasy.net/Home/NearbyEquipment?typeId=1&address=%u5B66%u751F%u516C%u5BD3%uFF08%u4E00%uFF09'
-            getcoo = 'http://c.cooleasy.net/457954';
-            window.location.href = xyj;
-            // window.open(xyj);
-            alert("查询成功");
-            window.open(getcoo);
-            break;
-            // window.open('https://wx2.cooleasy.net/Home/NearbyEquipment?typeId=1&address=%u5B66%u751F%u516C%u5BD3%uFF08%u4E00%uFF09')
-        }
-
+        but.forEach(element => {
+            adjustFontSize(element)
+        });
     </script>
 </body>
 
