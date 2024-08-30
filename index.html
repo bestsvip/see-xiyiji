@@ -78,10 +78,6 @@
         </div>
     </center>
     <script>
-        if (!localStorage.getItem('token')){
-            alert('先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮')
-            localStorage.setItem('token','1')
-        }
         var but = document.querySelectorAll('button')
 
         function adjustFontSize(div) {
@@ -93,6 +89,12 @@
         but.forEach(element => {
             adjustFontSize(element)
         });
+
+        if (!localStorage.getItem('--xyjdjl--')){
+            alert('使用说明: \n 先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮')
+            localStorage.setItem('--xyjdjl--','1')
+        }
+
     </script>
 </body>
 
