@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看G1 洗衣机状态</title>
+</head>
+
+<body>
+    <iframe id='status' src="http://c.cooleasy.net/457954" width="600" height="400" style="border:none;"></iframe>
+    <script>
+        var iframe = document.getElementById("myIframe");
+
+        iframe.addEventListener("load", function () {
+            document.getElementById("status").textContent = "iframe 已加载完毕";
+            console.log("iframe 已加载完毕");
+            window.open('https://wx2.cooleasy.net/Home/NearbyEquipment?typeId=1&address=%u5B66%u751F%u516C%u5BD3%uFF08%u4E00%uFF09')
+        });
+    </script>
+</body>
+
+</html>
