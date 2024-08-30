@@ -50,13 +50,13 @@
 <body>
     <center>
         <div class="marquee-container">
-            <marquee class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮</marquee>
+            <marquee class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮</marquee>
         </div>
         <br>
         <div>
             <label>使用说明</label>
         </div>
-        <div class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮</div>
+        <div class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮</div>
         <br>
         <br>
         <div>
@@ -97,10 +97,12 @@
         });
 
         if (!localStorage.getItem('--xyjdjl--')){
-            alert('使用说明: \n 先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面点击“状态”按钮')
+            alert('使用说明: \n 先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮')
             localStorage.setItem('--xyjdjl--','1')
         }
-
+        if(window.performance.navigation.type == 2){
+            zt()
+        }
     </script>
 </body>
 
