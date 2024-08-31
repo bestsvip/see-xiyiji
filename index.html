@@ -20,15 +20,17 @@
             color: #333;
             font-size: 16px;
             font-weight: bold;
-            
+
             padding: 0 20px;
         }
-        label{
+
+        label {
             font-size: 24px;
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
-        }        
+        }
+
         button {
             white-space: nowrap;
             padding: 10px 20px;
@@ -41,8 +43,6 @@
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            background-color: #007BFF;
-            transition: background-color 0.3s;
         }
     </style>
 </head>
@@ -50,13 +50,14 @@
 <body>
     <center>
         <div class="marquee-container">
-            <marquee class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮</marquee>
+            <marquee class="marquee-text">先点“登录”按钮（若近期登录过，可直接访问状态）-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮
+            </marquee>
         </div>
         <br>
         <div>
             <label>使用说明</label>
         </div>
-        <div class="marquee-text">先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮</div>
+        <div class="color: #333;font-size: 16px;font-weight: bold;padding: 0 20px;">先点“登录”按钮（若近期登录过，可直接访问状态）-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮</div>
         <br>
         <br>
         <div>
@@ -78,10 +79,10 @@
         </div>
     </center>
     <script>
-        function dl(){
+        function dl() {
             window.location.href = "http://c.cooleasy.net/457954";
         }
-        function zt(){
+        function zt() {
             window.location.href = "https://wx2.cooleasy.net/Home/NearbyEquipment?typeId=1&address=%u5B66%u751F%u516C%u5BD3%uFF08%u4E00%uFF09";
         }
         var but = document.querySelectorAll('button')
@@ -96,11 +97,14 @@
             adjustFontSize(element)
         });
 
-        if (!localStorage.getItem('--xyjdjl--')){
-            alert('使用说明: \n 先点“登录”按钮-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮')
-            localStorage.setItem('--xyjdjl--','1')
+        if (!localStorage.getItem('--xyjdjl--')) {
+            alert('使用说明: \n 先点“登录”按钮（若近期登录过，可直接访问状态）-获取账号信息，等待页面跳转，出现开始使用后，返回该页面!!! 若无自动跳转，请手动点击“状态”按钮')
+            localStorage.setItem('--xyjdjl--', '1')
         }
-        if(window.performance.navigation.type == 2){
+        if (window.performance.navigation.type == 0){
+            dl()
+        }
+        if (window.performance.navigation.type == 2) {
             zt()
         }
     </script>
